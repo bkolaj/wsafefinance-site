@@ -61,13 +61,13 @@ function ServicePreviewCard({
   return (
     <div
       className={cn(
-        "rounded-2xl border bg-white p-6 transition-shadow duration-200 hover:shadow-soft",
-        featured ? "border-gold/40" : "border-line/80",
+        "rounded-2xl border bg-white p-6 transition-shadow duration-200 hover:shadow-soft dark:bg-midnight",
+        featured ? "border-gold/40" : "border-line/80 dark:border-white/10",
       )}
     >
       <div className="flex items-start justify-between gap-4">
-        <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-line/80 bg-paper">
-          <Icon className="h-5 w-5 text-ink" />
+        <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-line/80 bg-paper dark:border-white/10 dark:bg-night">
+          <Icon className="h-5 w-5 text-ink dark:text-paper" />
         </div>
         {featured ? (
           <div className="rounded-full bg-gold/15 px-3 py-1 text-xs font-medium text-gold">
@@ -75,11 +75,11 @@ function ServicePreviewCard({
           </div>
         ) : null}
       </div>
-      <div className="mt-5 font-serif text-lg text-ink">{title}</div>
-      <p className="mt-3 text-sm leading-relaxed text-slateText/75">{description}</p>
+      <div className="mt-5 font-serif text-lg text-ink dark:text-paper">{title}</div>
+      <p className="mt-3 text-sm leading-relaxed text-slateText/75 dark:text-paper/70">{description}</p>
       <Link
         to="/uslugi"
-        className="mt-5 inline-flex items-center gap-2 text-sm text-ink/70 hover:text-ink"
+        className="mt-5 inline-flex items-center gap-2 text-sm text-ink/70 hover:text-ink dark:text-paper/70 dark:hover:text-paper"
       >
         Szczegóły
         <ChevronRight className="h-4 w-4" />
@@ -90,24 +90,24 @@ function ServicePreviewCard({
 
 export default function Home() {
   return (
-    <main className="bg-paper">
+    <main className="bg-paper dark:bg-night">
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute -left-24 -top-24 h-[520px] w-[520px] rounded-full bg-ink/10 blur-3xl" />
-          <div className="absolute -bottom-40 -right-24 h-[620px] w-[620px] rounded-full bg-gold/18 blur-3xl" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(11,31,59,0.10),transparent_60%)]" />
+          <div className="absolute -left-24 -top-24 h-[520px] w-[520px] rounded-full bg-ink/10 blur-3xl dark:bg-white/5" />
+          <div className="absolute -bottom-40 -right-24 h-[620px] w-[620px] rounded-full bg-gold/18 blur-3xl dark:bg-gold/12" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(30,54,70,0.10),transparent_60%)] dark:bg-[radial-gradient(circle_at_25%_25%,rgba(183,154,102,0.10),transparent_60%)]" />
         </div>
 
         <Container className="relative py-16 sm:py-24">
           <div className="grid items-center gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
-              <div className="text-xs font-medium tracking-[0.18em] text-ink/60">
+              <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/60">
                 Rokietnica · standard ogólnopolski
               </div>
-              <h1 className="mt-4 max-w-2xl font-serif text-4xl leading-[1.05] text-ink sm:text-5xl">
+              <h1 className="mt-4 max-w-2xl font-serif text-4xl leading-[1.05] text-ink dark:text-paper sm:text-5xl">
                 Finanse w porządku. Spokój w standardzie premium.
               </h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-slateText/75">
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-slateText/75 dark:text-paper/70">
                 Kompleksowo prowadzę proces finansowania — od analizy potrzeb i ryzyk, po wybór
                 najlepszych warunków i finalizację. Bez presji, z pełną przejrzystością.
               </p>
@@ -121,13 +121,16 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="mt-10 grid gap-3 text-sm text-slateText/75 sm:grid-cols-3">
+              <div className="mt-10 grid gap-3 text-sm text-slateText/75 dark:text-paper/70 sm:grid-cols-3">
                 {[
                   "Strategia dopasowana do Twojej sytuacji",
                   "Jasne porównanie ofert i kosztów",
                   "Prowadzenie procesu krok po kroku",
                 ].map((t) => (
-                  <div key={t} className="rounded-2xl border border-line/80 bg-white/70 px-4 py-3">
+                  <div
+                    key={t}
+                    className="rounded-2xl border border-line/80 bg-white/70 px-4 py-3 dark:border-white/10 dark:bg-white/5"
+                  >
                     {t}
                   </div>
                 ))}
@@ -135,24 +138,52 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="rounded-3xl border border-line/80 bg-white p-6 shadow-soft">
-                <div className="text-xs font-medium tracking-[0.18em] text-ink/60">Podejście</div>
-                <div className="mt-3 font-serif text-2xl text-ink">Partnerstwo, nie sprzedaż</div>
-                <p className="mt-4 text-sm leading-relaxed text-slateText/75">
-                  Nazywam się Sylwia Wiśniewska. W. Safe Finance to butikowe doradztwo finansowe,
-                  w którym liczy się precyzja, poufność i spokojne prowadzenie procesu.
-                </p>
-                <div className="mt-6 grid gap-3">
-                  {[
-                    { title: "Bezpieczeństwo", desc: "Decyzje oparte na analizie, nie emocjach." },
-                    { title: "Przejrzystość", desc: "Warunki i koszty przedstawione wprost." },
-                    { title: "Opieka", desc: "Od pierwszej rozmowy do finalizacji." },
-                  ].map((x) => (
-                    <div key={x.title} className="rounded-2xl bg-paper px-5 py-4">
-                      <div className="text-sm font-medium text-ink">{x.title}</div>
-                      <div className="mt-1 text-sm text-slateText/75">{x.desc}</div>
+              <div className="grid gap-6">
+                <div className="relative overflow-hidden rounded-3xl border border-line/80 bg-white shadow-soft dark:border-white/10 dark:bg-midnight">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(183,154,102,0.10),transparent_55%)]" />
+                  <div className="relative px-7 py-8">
+                    <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/60">
+                      W. Safe Finance
                     </div>
-                  ))}
+                    <div className="mt-3 font-serif text-2xl text-ink dark:text-paper">Szwajcarski spokój, fintechowa precyzja</div>
+                    <div className="mt-6">
+                      <img
+                        src="/photos/wide_logo.png"
+                        alt="W. Safe Finance"
+                        className="block w-full max-w-[420px] dark:hidden"
+                        loading="eager"
+                        decoding="async"
+                      />
+                      <img
+                        src="/photos/wide_logo_white.png"
+                        alt="W. Safe Finance"
+                        className="hidden w-full max-w-[420px] dark:block"
+                        loading="eager"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-3xl border border-line/80 bg-white p-6 shadow-soft dark:border-white/10 dark:bg-midnight">
+                  <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/60">Podejście</div>
+                  <div className="mt-3 font-serif text-2xl text-ink dark:text-paper">Partnerstwo, nie sprzedaż</div>
+                  <p className="mt-4 text-sm leading-relaxed text-slateText/75 dark:text-paper/70">
+                    Nazywam się Sylwia Wiśniewska. W. Safe Finance to butikowe doradztwo finansowe,
+                    w którym liczy się precyzja, poufność i spokojne prowadzenie procesu.
+                  </p>
+                  <div className="mt-6 grid gap-3">
+                    {[
+                      { title: "Bezpieczeństwo", desc: "Decyzje oparte na analizie, nie emocjach." },
+                      { title: "Przejrzystość", desc: "Warunki i koszty przedstawione wprost." },
+                      { title: "Opieka", desc: "Od pierwszej rozmowy do finalizacji." },
+                    ].map((x) => (
+                      <div key={x.title} className="rounded-2xl bg-paper px-5 py-4 dark:bg-night">
+                        <div className="text-sm font-medium text-ink dark:text-paper">{x.title}</div>
+                        <div className="mt-1 text-sm text-slateText/75 dark:text-paper/70">{x.desc}</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -160,7 +191,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-t border-line/70 bg-paper">
+      <section className="border-t border-line/70 bg-paper dark:border-white/10 dark:bg-night">
         <Container className="py-14">
           <SectionHeading
             eyebrow="Usługi"
@@ -181,7 +212,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-t border-line/70 bg-paper">
+      <section className="border-t border-line/70 bg-paper dark:border-white/10 dark:bg-night">
         <Container className="py-14">
           <SectionHeading
             eyebrow="Zaufanie"
@@ -201,7 +232,7 @@ export default function Home() {
             ].map((t, idx) => (
               <div
                 key={`${t}-${idx}`}
-                className="flex h-14 items-center justify-center rounded-2xl border border-line/80 bg-white text-xs font-medium tracking-[0.22em] text-ink/35"
+                className="flex h-14 items-center justify-center rounded-2xl border border-line/80 bg-white text-xs font-medium tracking-[0.22em] text-ink/35 dark:border-white/10 dark:bg-midnight dark:text-paper/30"
               >
                 {t}
               </div>
@@ -210,7 +241,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="border-t border-line/70 bg-paper">
+      <section className="border-t border-line/70 bg-paper dark:border-white/10 dark:bg-night">
         <Container className="py-14">
           <SectionHeading
             eyebrow="Proces"
@@ -224,24 +255,24 @@ export default function Home() {
               { n: "03", t: "Wnioski i formalności", d: "Prowadzenie procesu i dokumentów krok po kroku." },
               { n: "04", t: "Finalizacja", d: "Dopięcie szczegółów i spokojne domknięcie." },
             ].map((s) => (
-              <div key={s.n} className="rounded-2xl border border-line/80 bg-white p-6">
-                <div className="text-xs font-medium tracking-[0.18em] text-ink/50">{s.n}</div>
-                <div className="mt-3 font-serif text-xl text-ink">{s.t}</div>
-                <div className="mt-3 text-sm leading-relaxed text-slateText/75">{s.d}</div>
+              <div key={s.n} className="rounded-2xl border border-line/80 bg-white p-6 dark:border-white/10 dark:bg-midnight">
+                <div className="text-xs font-medium tracking-[0.18em] text-ink/50 dark:text-paper/55">{s.n}</div>
+                <div className="mt-3 font-serif text-xl text-ink dark:text-paper">{s.t}</div>
+                <div className="mt-3 text-sm leading-relaxed text-slateText/75 dark:text-paper/70">{s.d}</div>
               </div>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="border-t border-line/70 bg-paper">
+      <section className="border-t border-line/70 bg-paper dark:border-white/10 dark:bg-night">
         <Container className="py-14">
-          <div className="rounded-3xl border border-line/80 bg-white p-8 shadow-soft sm:p-12">
+          <div className="rounded-3xl border border-line/80 bg-white p-8 shadow-soft dark:border-white/10 dark:bg-midnight sm:p-12">
             <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-8">
-                <div className="text-xs font-medium tracking-[0.18em] text-ink/60">Następny krok</div>
-                <h2 className="mt-3 font-serif text-3xl text-ink">Gotowy/a na decyzję bez zgadywania?</h2>
-                <p className="mt-4 text-sm leading-relaxed text-slateText/75">
+                <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/60">Następny krok</div>
+                <h2 className="mt-3 font-serif text-3xl text-ink dark:text-paper">Gotowy/a na decyzję bez zgadywania?</h2>
+                <p className="mt-4 text-sm leading-relaxed text-slateText/75 dark:text-paper/70">
                   Wyślij krótki opis sytuacji — wrócę z propozycją terminu konsultacji i kolejnym krokiem.
                 </p>
               </div>

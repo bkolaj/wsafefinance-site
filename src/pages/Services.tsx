@@ -85,19 +85,19 @@ function ServiceCard({ service }: { service: Service }) {
   return (
     <div
       className={cn(
-        "group rounded-2xl border bg-white p-6 transition-shadow duration-200 hover:shadow-soft",
-        service.featured ? "border-gold/40" : "border-line/80",
+        "group rounded-2xl border bg-white p-6 transition-shadow duration-200 hover:shadow-soft dark:bg-midnight",
+        service.featured ? "border-gold/40" : "border-line/80 dark:border-white/10",
       )}
     >
       <div className="flex items-start justify-between gap-4">
         <div>
           <div className="flex items-center gap-3">
-            <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-line/80 bg-paper">
-              <Icon className="h-5 w-5 text-ink" />
+            <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-line/80 bg-paper dark:border-white/10 dark:bg-night">
+              <Icon className="h-5 w-5 text-ink dark:text-paper" />
             </div>
-            <div className="font-serif text-lg text-ink">{service.title}</div>
+            <div className="font-serif text-lg text-ink dark:text-paper">{service.title}</div>
           </div>
-          <p className="mt-4 text-sm leading-relaxed text-slateText/75">{service.description}</p>
+          <p className="mt-4 text-sm leading-relaxed text-slateText/75 dark:text-paper/70">{service.description}</p>
         </div>
         {service.featured ? (
           <div className="rounded-full bg-gold/15 px-3 py-1 text-xs font-medium text-gold">
@@ -106,19 +106,22 @@ function ServiceCard({ service }: { service: Service }) {
         ) : null}
       </div>
 
-      <ul className="mt-5 grid gap-2 text-sm text-slateText/75">
+      <ul className="mt-5 grid gap-2 text-sm text-slateText/75 dark:text-paper/70">
         {service.bullets.map((b) => (
           <li key={b} className="flex gap-2">
-            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-ink/35" />
+            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-ink/35 dark:bg-white/30" />
             <span>{b}</span>
           </li>
         ))}
       </ul>
 
       <div className="mt-6">
-        <Link to="/kontakt" className="inline-flex items-center gap-2 text-sm text-ink/70 hover:text-ink">
+        <Link
+          to="/kontakt"
+          className="inline-flex items-center gap-2 text-sm text-ink/70 hover:text-ink dark:text-paper/70 dark:hover:text-paper"
+        >
           Umów konsultację
-          <span className="text-ink/35">→</span>
+          <span className="text-ink/35 dark:text-paper/35">→</span>
         </Link>
       </div>
     </div>
@@ -127,21 +130,25 @@ function ServiceCard({ service }: { service: Service }) {
 
 function FaqItem({ q, a }: { q: string; a: string }) {
   return (
-    <details className="group rounded-2xl border border-line/80 bg-white px-6 py-4">
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-sm font-medium text-ink">
+    <details className="group rounded-2xl border border-line/80 bg-white px-6 py-4 dark:border-white/10 dark:bg-midnight">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-sm font-medium text-ink dark:text-paper">
         <span>{q}</span>
-        <ChevronDown className="h-4 w-4 text-ink/60 transition-transform duration-200 group-open:rotate-180" />
+        <ChevronDown className="h-4 w-4 text-ink/60 transition-transform duration-200 group-open:rotate-180 dark:text-paper/60" />
       </summary>
-      <p className="mt-3 text-sm leading-relaxed text-slateText/75">{a}</p>
+      <p className="mt-3 text-sm leading-relaxed text-slateText/75 dark:text-paper/70">{a}</p>
     </details>
   );
 }
 
 export default function Services() {
   return (
-    <main className="bg-paper">
-      <div className="border-b border-line/70 bg-paper">
-        <Container className="py-14 sm:py-20">
+    <main className="bg-paper dark:bg-night">
+      <div className="border-b border-line/70 bg-paper dark:border-white/10 dark:bg-night">
+        <Container className="relative overflow-hidden py-14 sm:py-20">
+          <div className="pointer-events-none absolute -right-10 -top-10 hidden h-56 w-56 opacity-[0.08] sm:block">
+            <img src="/photos/solo_logo.png" alt="" className="h-full w-full object-contain dark:hidden" />
+            <img src="/photos/solo_logo_white.png" alt="" className="hidden h-full w-full object-contain dark:block" />
+          </div>
           <SectionHeading
             eyebrow="Oferta"
             title="Usługi zaprojektowane pod stabilność"
@@ -166,7 +173,7 @@ export default function Services() {
         </div>
       </Container>
 
-      <div className="border-t border-line/70 bg-paper">
+      <div className="border-t border-line/70 bg-paper dark:border-white/10 dark:bg-night">
         <Container className="py-14">
           <SectionHeading
             eyebrow="Warianty"
@@ -195,18 +202,18 @@ export default function Services() {
               <div
                 key={p.name}
                 className={cn(
-                  "rounded-2xl border bg-white p-6",
-                  p.featured ? "border-gold/45 shadow-soft" : "border-line/80",
+                  "rounded-2xl border bg-white p-6 dark:bg-midnight",
+                  p.featured ? "border-gold/45 shadow-soft" : "border-line/80 dark:border-white/10",
                 )}
               >
                 <div className="flex items-baseline justify-between gap-4">
-                  <div className="font-serif text-xl text-ink">{p.name}</div>
-                  <div className="text-xs font-medium tracking-[0.18em] text-ink/60">{p.price}</div>
+                  <div className="font-serif text-xl text-ink dark:text-paper">{p.name}</div>
+                  <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/60">{p.price}</div>
                 </div>
-                <ul className="mt-5 grid gap-2 text-sm text-slateText/75">
+                <ul className="mt-5 grid gap-2 text-sm text-slateText/75 dark:text-paper/70">
                   {p.items.map((it) => (
                     <li key={it} className="flex gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-ink/35" />
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-ink/35 dark:bg-white/30" />
                       <span>{it}</span>
                     </li>
                   ))}

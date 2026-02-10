@@ -3,7 +3,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 
 export default function Privacy() {
   return (
-    <main className="bg-paper">
+    <main className="bg-paper dark:bg-night">
       <Container className="py-14 sm:py-20">
         <SectionHeading
           eyebrow="Dokument"
@@ -11,7 +11,7 @@ export default function Privacy() {
           description="Treść poniżej jest szkicem. Wstaw finalną wersję przygotowaną pod Twoje procesy i narzędzia."
         />
 
-        <div className="mt-10 max-w-3xl space-y-6 text-sm leading-relaxed text-slateText/75">
+        <div className="mt-10 max-w-3xl space-y-6 text-sm leading-relaxed text-slateText/75 dark:text-paper/70">
           <p>
             Administratorem danych jest W. Safe Finance (Sylwia Wiśniewska), ul. Spichrzowa 11,
             62-090 Rokietnica.
@@ -32,4 +32,3 @@ export default function Privacy() {
     </main>
   );
 }
-

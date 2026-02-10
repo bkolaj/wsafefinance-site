@@ -12,15 +12,17 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <SiteHeader />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/uslugi" element={<Services />} />
-        <Route path="/kontakt" element={<Contact />} />
-        <Route path="/polityka-prywatnosci" element={<Privacy />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <SiteFooter />
+      <div className="min-h-dvh bg-paper text-slateText antialiased dark:bg-night dark:text-paper">
+        <SiteHeader />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/uslugi" element={<Services />} />
+          <Route path="/kontakt" element={<Contact />} />
+          <Route path="/polityka-prywatnosci" element={<Privacy />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <SiteFooter />
+      </div>
     </Router>
   );
 }

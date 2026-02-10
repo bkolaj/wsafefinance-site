@@ -40,7 +40,7 @@ function InputField({
 }) {
   return (
     <div className="grid gap-2">
-      <label className="text-xs font-medium tracking-[0.12em] text-ink/65" htmlFor={name}>
+      <label className="text-xs font-medium tracking-[0.12em] text-ink/65 dark:text-paper/60" htmlFor={name}>
         {label}
       </label>
       <input
@@ -51,7 +51,7 @@ function InputField({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         className={cn(
-          "h-11 w-full rounded-xl border bg-white px-4 text-sm text-slateText outline-none transition-colors placeholder:text-slateText/45 focus:border-gold/55 focus:ring-2 focus:ring-gold/20",
+          "h-11 w-full rounded-xl border bg-white px-4 text-sm text-slateText outline-none transition-colors placeholder:text-slateText/45 focus:border-gold/55 focus:ring-2 focus:ring-gold/20 dark:border-white/10 dark:bg-night dark:text-paper dark:placeholder:text-paper/40",
           error ? "border-red-300" : "border-line/80",
         )}
       />
@@ -77,7 +77,7 @@ function TextareaField({
 }) {
   return (
     <div className="grid gap-2">
-      <label className="text-xs font-medium tracking-[0.12em] text-ink/65" htmlFor={name}>
+      <label className="text-xs font-medium tracking-[0.12em] text-ink/65 dark:text-paper/60" htmlFor={name}>
         {label}
       </label>
       <textarea
@@ -88,7 +88,7 @@ function TextareaField({
         placeholder={placeholder}
         rows={6}
         className={cn(
-          "w-full resize-none rounded-xl border bg-white px-4 py-3 text-sm leading-relaxed text-slateText outline-none transition-colors placeholder:text-slateText/45 focus:border-gold/55 focus:ring-2 focus:ring-gold/20",
+          "w-full resize-none rounded-xl border bg-white px-4 py-3 text-sm leading-relaxed text-slateText outline-none transition-colors placeholder:text-slateText/45 focus:border-gold/55 focus:ring-2 focus:ring-gold/20 dark:border-white/10 dark:bg-night dark:text-paper dark:placeholder:text-paper/40",
           error ? "border-red-300" : "border-line/80",
         )}
       />
@@ -147,7 +147,7 @@ export default function Contact() {
   };
 
   return (
-    <main className="bg-paper">
+    <main className="bg-paper dark:bg-night">
       <Container className="py-14 sm:py-20">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
@@ -157,12 +157,12 @@ export default function Contact() {
               description="Napisz 2–3 zdania: cel, horyzont, najważniejsze ograniczenia. Wrócę z propozycją kolejnego kroku."
             />
 
-            <div className="mt-10 rounded-2xl border border-line/80 bg-white p-6 sm:p-8">
+            <div className="mt-10 rounded-2xl border border-line/80 bg-white p-6 sm:p-8 dark:border-white/10 dark:bg-midnight">
               {status === "success" ? (
                 <div className="max-w-xl">
-                  <div className="text-xs font-medium tracking-[0.18em] text-ink/60">Wysłano</div>
-                  <h2 className="mt-3 font-serif text-2xl text-ink">Dziękuję za wiadomość</h2>
-                  <p className="mt-3 text-sm leading-relaxed text-slateText/75">
+                  <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/60">Wysłano</div>
+                  <h2 className="mt-3 font-serif text-2xl text-ink dark:text-paper">Dziękuję za wiadomość</h2>
+                  <p className="mt-3 text-sm leading-relaxed text-slateText/75 dark:text-paper/70">
                     Odpowiem zwykle w ciągu 1–2 dni roboczych. Jeśli temat jest pilny, zadzwoń:
                     782-002-822.
                   </p>
@@ -226,7 +226,7 @@ export default function Contact() {
                   />
 
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="text-xs leading-relaxed text-slateText/70">
+                    <div className="text-xs leading-relaxed text-slateText/70 dark:text-paper/60">
                       Wysyłając formularz, zgadzasz się na kontakt zwrotny.
                     </div>
                     <Button type="submit" disabled={status === "submitting"}>
@@ -239,19 +239,26 @@ export default function Contact() {
           </div>
 
           <aside className="lg:col-span-5">
-            <div className="rounded-2xl border border-line/80 bg-white p-6 sm:p-8">
-              <div className="text-xs font-medium tracking-[0.18em] text-ink/60">Dane</div>
-              <div className="mt-3 font-serif text-xl text-ink">W. Safe Finance</div>
+            <div className="rounded-2xl border border-line/80 bg-white p-6 sm:p-8 dark:border-white/10 dark:bg-midnight">
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/60">Dane</div>
+                  <div className="mt-3 font-serif text-xl text-ink dark:text-paper">W. Safe Finance</div>
+                </div>
+                <div className="h-12 w-12 rounded-2xl bg-ink p-2.5 shadow-soft ring-1 ring-black/5 dark:ring-white/10">
+                  <img src="/photos/solo_logo_white.png" alt="" className="h-full w-full object-contain" />
+                </div>
+              </div>
               <div className="mt-5 grid gap-2 text-sm">
-                <a className="text-ink hover:underline" href="tel:782002822">
+                <a className="text-ink hover:underline dark:text-paper" href="tel:782002822">
                   782-002-822
                 </a>
-                <a className="text-ink hover:underline" href="mailto:biuro@wsafefinance.pl">
+                <a className="text-ink hover:underline dark:text-paper" href="mailto:biuro@wsafefinance.pl">
                   biuro@wsafefinance.pl
                 </a>
-                <div className="text-slateText/75">ul. Spichrzowa 11, 62-090 Rokietnica</div>
+                <div className="text-slateText/75 dark:text-paper/70">ul. Spichrzowa 11, 62-090 Rokietnica</div>
                 <a
-                  className="text-ink/80 hover:text-ink hover:underline"
+                  className="text-ink/80 hover:text-ink hover:underline dark:text-paper/75 dark:hover:text-paper"
                   href="https://instagram.com/w.safefinance"
                   target="_blank"
                   rel="noreferrer"
@@ -260,14 +267,17 @@ export default function Contact() {
                 </a>
               </div>
 
-              <div className="mt-8 rounded-2xl bg-paper p-5">
-                <div className="text-xs font-medium tracking-[0.18em] text-ink/60">Poufność</div>
-                <p className="mt-3 text-sm leading-relaxed text-slateText/75">
+              <div className="mt-8 rounded-2xl bg-paper p-5 dark:bg-night">
+                <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/60">Poufność</div>
+                <p className="mt-3 text-sm leading-relaxed text-slateText/75 dark:text-paper/70">
                   Minimum danych, maksimum klarowności. Informacje z formularza są traktowane
                   poufnie.
                 </p>
                 <div className="mt-5">
-                  <Link to="/polityka-prywatnosci" className="text-sm text-ink/70 hover:text-ink">
+                  <Link
+                    to="/polityka-prywatnosci"
+                    className="text-sm text-ink/70 hover:text-ink dark:text-paper/70 dark:hover:text-paper"
+                  >
                     Polityka prywatności →
                   </Link>
                 </div>
