@@ -14,7 +14,7 @@ export function SiteFooter() {
             <p className="mt-3 max-w-md text-sm leading-relaxed text-slateText/70 dark:text-paper/70">
               {isEn
                 ? "Boutique financial advisory with a premium standard — calm, transparent and without pressure."
-                : "Butikowe doradztwo finansowe o standardzie premium — spokojnie, przejrzyście i bez presji."}
+                : "Profesjonalne doradztwo finansowe o standardzie premium — spokojnie, przejrzyście i bez presji."}
             </p>
           </div>
 

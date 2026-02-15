@@ -30,8 +30,8 @@ const services: Service[] = [
     description:
       "Flagowy obszar. Prowadzenie całego procesu: od strategii i analizy po podpisanie umowy.",
     bullets: [
-      "Wybór rozwiązania dopasowanego do Twojej sytuacji",
-      "Porównanie ofert i kosztów w czasie",
+      "Pomoc przy wyborze rozwiązania dopasowanego do Twojej sytuacji finansowej",
+      "Porównanie ofert kilkunastu banków",
       "Wsparcie w dokumentach i komunikacji z bankiem",
     ],
     featured: true,
@@ -41,7 +41,11 @@ const services: Service[] = [
     icon: HandCoins,
     description:
       "Finansowanie celów prywatnych z naciskiem na przejrzyste warunki i całkowity koszt.",
-    bullets: ["Dobór okresu i raty", "Optymalizacja kosztu", "Czytelna rekomendacja"],
+    bullets: [
+      "Dobór okresu i raty",
+      "Optymalizacja kosztu",
+      "Pomoc w znalezieniu najkorzystniejszej oferty",
+    ],
   },
   {
     title: "Kredyty firmowe",
