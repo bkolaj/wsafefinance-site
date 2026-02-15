@@ -29,8 +29,8 @@ const services: Service[] = [
     icon: Home,
     description: "Flagship area. Full process support — from strategy to signing.",
     bullets: [
-      "Solution matched to your situation",
-      "Comparison of offers and long-term costs",
+      "Help choosing a solution tailored to your financial situation",
+      "Comparison of offers from multiple banks",
       "Support with documents and bank communication",
     ],
     featured: true,
@@ -39,7 +39,11 @@ const services: Service[] = [
     title: "Cash loans",
     icon: HandCoins,
     description: "Financing personal goals with focus on clear terms and total cost.",
-    bullets: ["Repayment period & monthly payment", "Cost optimization", "Clear recommendation"],
+    bullets: [
+      "Repayment period & monthly payment",
+      "Cost optimization",
+      "Help finding the most advantageous offer",
+    ],
   },
   {
     title: "Business loans",
@@ -239,4 +243,3 @@ export default function ServicesEn() {
     </main>
   );
 }
-

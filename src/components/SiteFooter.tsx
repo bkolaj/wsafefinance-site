@@ -13,7 +13,7 @@ export function SiteFooter() {
             <div className="font-serif text-lg text-ink dark:text-paper">W. Safe Finance</div>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-slateText/70 dark:text-paper/70">
               {isEn
-                ? "Boutique financial advisory with a premium standard — calm, transparent and without pressure."
+                ? "Professional financial advisory with a premium standard — calm, transparent and without pressure."
                 : "Profesjonalne doradztwo finansowe o standardzie premium — spokojnie, przejrzyście i bez presji."}
             </p>
           </div>
