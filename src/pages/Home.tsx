@@ -95,7 +95,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <div className="absolute -left-24 -top-24 h-[520px] w-[520px] rounded-full bg-ink/10 blur-3xl dark:bg-white/5" />
           <div className="absolute -bottom-40 -right-24 h-[620px] w-[620px] rounded-full bg-gold/18 blur-3xl dark:bg-gold/12" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(30,54,70,0.10),transparent_60%)] dark:bg-[radial-gradient(circle_at_25%_25%,rgba(183,154,102,0.10),transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(30,52,72,0.10),transparent_60%)] dark:bg-[radial-gradient(circle_at_25%_25%,rgba(187,158,112,0.10),transparent_60%)]" />
         </div>
 
         <Container className="relative py-16 sm:py-24">
@@ -140,7 +140,7 @@ export default function Home() {
             <div className="lg:col-span-5">
               <div className="grid gap-6">
                 <div className="relative overflow-hidden rounded-3xl border border-line/80 bg-white shadow-soft dark:border-white/10 dark:bg-midnight">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(183,154,102,0.10),transparent_55%)]" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(187,158,112,0.10),transparent_55%)]" />
                   <div className="relative px-7 py-8">
                     <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/60">
                       W. Safe Finance
@@ -148,14 +148,14 @@ export default function Home() {
                     <div className="mt-3 font-serif text-2xl text-ink dark:text-paper">Szwajcarski spokój, fintechowa precyzja</div>
                     <div className="mt-6">
                       <img
-                        src="/photos/wide_logo.png"
+                        src="/photos/light/wide_logo.png"
                         alt="W. Safe Finance"
                         className="block w-full max-w-[420px] dark:hidden"
                         loading="eager"
                         decoding="async"
                       />
                       <img
-                        src="/photos/wide_logo_white.png"
+                        src="/photos/dark/wide_logo_white.png"
                         alt="W. Safe Finance"
                         className="hidden w-full max-w-[420px] dark:block"
                         loading="eager"

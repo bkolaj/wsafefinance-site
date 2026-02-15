@@ -245,8 +245,17 @@ export default function Contact() {
                   <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/60">Dane</div>
                   <div className="mt-3 font-serif text-xl text-ink dark:text-paper">W. Safe Finance</div>
                 </div>
-                <div className="h-12 w-12 rounded-2xl bg-ink p-2.5 shadow-soft ring-1 ring-black/5 dark:ring-white/10">
-                  <img src="/photos/solo_logo_white.png" alt="" className="h-full w-full object-contain" />
+                <div className="h-12 w-12 rounded-2xl bg-white p-2.5 shadow-soft ring-1 ring-black/5 dark:bg-ink dark:ring-white/10">
+                  <img
+                    src="/photos/dark/solo_logo_white.png"
+                    alt=""
+                    className="hidden h-full w-full object-contain dark:block"
+                  />
+                  <img
+                    src="/photos/light/solo_logo.png"
+                    alt=""
+                    className="h-full w-full object-contain dark:hidden"
+                  />
                 </div>
               </div>
               <div className="mt-5 grid gap-2 text-sm">

@@ -17,6 +17,8 @@ export function SiteHeader() {
   const location = useLocation();
   const { toggleTheme, isDark } = useTheme();
 
+  const markSrc = isDark ? "/photos/dark/solo_logo_white.png" : "/photos/light/solo_logo.png";
+
   const isTransparent = useMemo(() => location.pathname === "/", [location.pathname]);
 
   return (
@@ -28,9 +30,9 @@ export function SiteHeader() {
     >
       <Container className="flex h-16 items-center justify-between">
         <Link to="/" className="group inline-flex items-center gap-3">
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-ink shadow-soft ring-1 ring-black/5 dark:ring-white/10">
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white shadow-soft ring-1 ring-black/5 dark:bg-ink dark:ring-white/10">
             <img
-              src="/photos/solo_logo_white.png"
+              src={markSrc}
               alt=""
               className="h-6 w-6 object-contain"
               loading="eager"

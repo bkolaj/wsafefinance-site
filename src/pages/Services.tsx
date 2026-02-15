@@ -146,8 +146,8 @@ export default function Services() {
       <div className="border-b border-line/70 bg-paper dark:border-white/10 dark:bg-night">
         <Container className="relative overflow-hidden py-14 sm:py-20">
           <div className="pointer-events-none absolute -right-10 -top-10 hidden h-56 w-56 opacity-[0.08] sm:block">
-            <img src="/photos/solo_logo.png" alt="" className="h-full w-full object-contain dark:hidden" />
-            <img src="/photos/solo_logo_white.png" alt="" className="hidden h-full w-full object-contain dark:block" />
+            <img src="/photos/light/solo_logo.png" alt="" className="h-full w-full object-contain dark:hidden" />
+            <img src="/photos/dark/solo_logo_white.png" alt="" className="hidden h-full w-full object-contain dark:block" />
           </div>
           <SectionHeading
             eyebrow="Oferta"
