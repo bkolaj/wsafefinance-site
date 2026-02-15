@@ -7,22 +7,57 @@ import { Button } from "@/components/Button";
 import { useTheme } from "@/hooks/useTheme";
 import { assetUrl, brandAssets } from "@/lib/brandAssets";
 
-const navItems = [
-  { to: "/", label: "Start" },
-  { to: "/uslugi", label: "Usługi" },
-  { to: "/kontakt", label: "Kontakt" },
-] as const;
+function toEnPath(pathname: string) {
+  if (pathname === "/") return "/en";
+  if (pathname === "/uslugi") return "/en/services";
+  if (pathname === "/kontakt") return "/en/contact";
+  if (pathname === "/polityka-prywatnosci") return "/en/privacy-policy";
+  return pathname.startsWith("/en") ? pathname : `/en${pathname === "/" ? "" : pathname}`;
+}
+
+function toPlPath(pathname: string) {
+  if (pathname === "/en") return "/";
+  if (pathname === "/en/services") return "/uslugi";
+  if (pathname === "/en/contact") return "/kontakt";
+  if (pathname === "/en/privacy-policy") return "/polityka-prywatnosci";
+  return pathname.startsWith("/en/") ? pathname.replace(/^\/en/, "") : pathname;
+}
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const { toggleTheme, isDark } = useTheme();
 
+  const isEn = useMemo(
+    () => location.pathname === "/en" || location.pathname.startsWith("/en/"),
+    [location.pathname],
+  );
+
+  const navItems = useMemo(
+    () =>
+      isEn
+        ? ([
+            { to: "/en", label: "Home" },
+            { to: "/en/services", label: "Services" },
+            { to: "/en/contact", label: "Contact" },
+          ] as const)
+        : ([
+            { to: "/", label: "Start" },
+            { to: "/uslugi", label: "Usługi" },
+            { to: "/kontakt", label: "Kontakt" },
+          ] as const),
+    [isEn],
+  );
+
   const headerLogoSrc = assetUrl(
     isDark ? brandAssets.dark.headerLogo : brandAssets.light.headerLogo,
   );
 
-  const isTransparent = useMemo(() => location.pathname === "/", [location.pathname]);
+  const isTransparent = useMemo(() => location.pathname === "/" || location.pathname === "/en", [location.pathname]);
+  const languageHref = useMemo(
+    () => (isEn ? toPlPath(location.pathname) : toEnPath(location.pathname)),
+    [isEn, location.pathname],
+  );
 
   return (
     <header
@@ -32,7 +67,7 @@ export function SiteHeader() {
       )}
     >
       <Container className="flex h-16 items-center justify-between">
-        <Link to="/" className="group inline-flex items-center gap-3">
+        <Link to={isEn ? "/en" : "/"} className="group inline-flex items-center gap-3">
           <img
             src={headerLogoSrc}
             alt="W. Safe Finance"
@@ -40,7 +75,7 @@ export function SiteHeader() {
             loading="eager"
             decoding="async"
           />
-          <span className="sr-only">Przejdź do strony głównej</span>
+          <span className="sr-only">{isEn ? "Go to homepage" : "Przejdź do strony głównej"}</span>
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex" aria-label="Nawigacja">
@@ -60,10 +95,17 @@ export function SiteHeader() {
               {it.label}
             </NavLink>
           ))}
-          <Link to="/kontakt">
+          <Link to={isEn ? "/en/contact" : "/kontakt"}>
             <Button variant="outline" size="sm">
-              Umów bezpłatną konsultację
+              {isEn ? "Book a free consultation" : "Umów bezpłatną konsultację"}
             </Button>
+          </Link>
+          <Link
+            to={languageHref}
+            className="text-xs font-medium tracking-[0.18em] text-ink/65 hover:text-ink dark:text-paper/70 dark:hover:text-paper"
+            aria-label={isEn ? "Switch language to Polish" : "Przełącz język na angielski"}
+          >
+            {isEn ? "PL" : "EN"}
           </Link>
           <button
             type="button"
@@ -76,6 +118,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
+          <Link
+            to={languageHref}
+            className="inline-flex h-10 items-center justify-center rounded-xl border border-line/70 px-3 text-xs font-medium tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink/5 dark:border-white/10 dark:text-paper/70 dark:hover:bg-white/10"
+            aria-label={isEn ? "Switch language to Polish" : "Przełącz język na angielski"}
+          >
+            {isEn ? "PL" : "EN"}
+          </Link>
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-line/70 text-ink/70 transition-colors hover:bg-ink/5 dark:border-white/10 dark:text-paper/70 dark:hover:bg-white/10"
@@ -116,10 +165,17 @@ export function SiteHeader() {
                   {it.label}
                 </NavLink>
               ))}
-              <Link to="/kontakt" onClick={() => setOpen(false)}>
+              <Link to={isEn ? "/en/contact" : "/kontakt"} onClick={() => setOpen(false)}>
                 <Button className="w-full" variant="primary">
-                  Umów bezpłatną konsultację
+                  {isEn ? "Book a free consultation" : "Umów bezpłatną konsultację"}
                 </Button>
+              </Link>
+              <Link
+                to={languageHref}
+                onClick={() => setOpen(false)}
+                className="rounded-xl px-4 py-3 text-sm text-ink/70 hover:bg-ink/5 dark:text-paper/70 dark:hover:bg-white/10"
+              >
+                {isEn ? "Switch to Polish" : "Switch to English"}
               </Link>
             </div>
           </Container>

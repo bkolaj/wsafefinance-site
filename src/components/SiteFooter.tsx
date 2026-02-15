@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Container } from "@/components/Container";
 
 export function SiteFooter() {
+  const location = useLocation();
+  const isEn = location.pathname === "/en" || location.pathname.startsWith("/en/");
+
   return (
     <footer className="border-t border-line/70 bg-paper dark:border-white/10 dark:bg-night">
       <Container className="py-12">
@@ -9,14 +12,17 @@ export function SiteFooter() {
           <div className="md:col-span-5">
             <div className="font-serif text-lg text-ink dark:text-paper">W. Safe Finance</div>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-slateText/70 dark:text-paper/70">
-              Butikowe doradztwo finansowe o standardzie premium — spokojnie, przejrzyście i bez
-              presji.
+              {isEn
+                ? "Boutique financial advisory with a premium standard — calm, transparent and without pressure."
+                : "Butikowe doradztwo finansowe o standardzie premium — spokojnie, przejrzyście i bez presji."}
             </p>
           </div>
 
           <div className="grid gap-8 md:col-span-7 md:grid-cols-2">
             <div>
-              <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/55">Kontakt</div>
+              <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/55">
+                {isEn ? "Contact" : "Kontakt"}
+              </div>
               <div className="mt-3 grid gap-2 text-sm text-ink dark:text-paper">
                 <a className="hover:underline" href="tel:782002822">
                   782-002-822
@@ -31,7 +37,9 @@ export function SiteFooter() {
             </div>
 
             <div>
-              <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/55">Linki</div>
+              <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/55">
+                {isEn ? "Links" : "Linki"}
+              </div>
               <div className="mt-3 grid gap-2 text-sm">
                 <a
                   className="text-ink/80 hover:text-ink hover:underline dark:text-paper/75 dark:hover:text-paper"
@@ -43,9 +51,9 @@ export function SiteFooter() {
                 </a>
                 <Link
                   className="text-ink/80 hover:text-ink hover:underline dark:text-paper/75 dark:hover:text-paper"
-                  to="/polityka-prywatnosci"
+                  to={isEn ? "/en/privacy-policy" : "/polityka-prywatnosci"}
                 >
-                  Polityka prywatności
+                  {isEn ? "Privacy policy" : "Polityka prywatności"}
                 </Link>
               </div>
             </div>
