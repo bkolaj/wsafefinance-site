@@ -12,6 +12,8 @@ import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/Button";
 import { cn } from "@/lib/utils";
+import { assetUrl, brandAssets } from "@/lib/brandAssets";
+import { useTheme } from "@/hooks/useTheme";
 
 type Service = {
   title: string;
@@ -141,13 +143,15 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function Services() {
+  const { isDark } = useTheme();
+  const markSrc = assetUrl(isDark ? brandAssets.dark.mark : brandAssets.light.mark);
+
   return (
     <main className="bg-paper dark:bg-night">
       <div className="border-b border-line/70 bg-paper dark:border-white/10 dark:bg-night">
         <Container className="relative overflow-hidden py-14 sm:py-20">
           <div className="pointer-events-none absolute -right-10 -top-10 hidden h-56 w-56 opacity-[0.08] sm:block">
-            <img src="/photos/light/solo_logo.png" alt="" className="h-full w-full object-contain dark:hidden" />
-            <img src="/photos/dark/solo_logo_white.png" alt="" className="hidden h-full w-full object-contain dark:block" />
+            <img src={markSrc} alt="" className="h-full w-full object-contain" decoding="async" />
           </div>
           <SectionHeading
             eyebrow="Oferta"

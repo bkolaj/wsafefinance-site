@@ -12,6 +12,8 @@ import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { cn } from "@/lib/utils";
+import { assetUrl, brandAssets } from "@/lib/brandAssets";
+import { useTheme } from "@/hooks/useTheme";
 
 const services: Array<{
   title: string;
@@ -89,6 +91,12 @@ function ServicePreviewCard({
 }
 
 export default function Home() {
+  const { isDark } = useTheme();
+  const markSrc = assetUrl(isDark ? brandAssets.dark.mark : brandAssets.light.mark);
+  const shortLogoSrc = assetUrl(
+    isDark ? brandAssets.dark.shortLogo : brandAssets.light.shortLogo,
+  );
+
   return (
     <main className="bg-paper dark:bg-night">
       <section className="relative overflow-hidden">
@@ -96,6 +104,9 @@ export default function Home() {
           <div className="absolute -left-24 -top-24 h-[520px] w-[520px] rounded-full bg-ink/10 blur-3xl dark:bg-white/5" />
           <div className="absolute -bottom-40 -right-24 h-[620px] w-[620px] rounded-full bg-gold/18 blur-3xl dark:bg-gold/12" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(30,52,72,0.10),transparent_60%)] dark:bg-[radial-gradient(circle_at_25%_25%,rgba(187,158,112,0.10),transparent_60%)]" />
+          <div className="pointer-events-none absolute -right-20 top-12 hidden h-[520px] w-[520px] opacity-[0.07] lg:block">
+            <img src={markSrc} alt="" className="h-full w-full object-contain" decoding="async" />
+          </div>
         </div>
 
         <Container className="relative py-16 sm:py-24">
@@ -148,16 +159,9 @@ export default function Home() {
                     <div className="mt-3 font-serif text-2xl text-ink dark:text-paper">Szwajcarski spokój, fintechowa precyzja</div>
                     <div className="mt-6">
                       <img
-                        src="/photos/light/wide_logo.png"
+                        src={shortLogoSrc}
                         alt="W. Safe Finance"
-                        className="block w-full max-w-[420px] dark:hidden"
-                        loading="eager"
-                        decoding="async"
-                      />
-                      <img
-                        src="/photos/dark/wide_logo_white.png"
-                        alt="W. Safe Finance"
-                        className="hidden w-full max-w-[420px] dark:block"
+                        className="block w-full max-w-[420px]"
                         loading="eager"
                         decoding="async"
                       />

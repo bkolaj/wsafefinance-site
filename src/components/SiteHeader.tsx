@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { useTheme } from "@/hooks/useTheme";
+import { assetUrl, brandAssets } from "@/lib/brandAssets";
 
 const navItems = [
   { to: "/", label: "Start" },
@@ -17,7 +18,9 @@ export function SiteHeader() {
   const location = useLocation();
   const { toggleTheme, isDark } = useTheme();
 
-  const markSrc = isDark ? "/photos/dark/solo_logo_white.png" : "/photos/light/solo_logo.png";
+  const headerLogoSrc = assetUrl(
+    isDark ? brandAssets.dark.headerLogo : brandAssets.light.headerLogo,
+  );
 
   const isTransparent = useMemo(() => location.pathname === "/", [location.pathname]);
 
@@ -30,21 +33,13 @@ export function SiteHeader() {
     >
       <Container className="flex h-16 items-center justify-between">
         <Link to="/" className="group inline-flex items-center gap-3">
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white shadow-soft ring-1 ring-black/5 dark:bg-ink dark:ring-white/10">
-            <img
-              src={markSrc}
-              alt=""
-              className="h-6 w-6 object-contain"
-              loading="eager"
-              decoding="async"
-            />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-serif text-lg text-ink dark:text-paper">W. Safe Finance</span>
-            <span className="hidden text-xs tracking-[0.18em] text-ink/55 dark:text-paper/60 sm:inline">
-              Sylwia Wiśniewska
-            </span>
-          </span>
+          <img
+            src={headerLogoSrc}
+            alt="W. Safe Finance"
+            className="h-9 w-auto select-none object-contain"
+            loading="eager"
+            decoding="async"
+          />
           <span className="sr-only">Przejdź do strony głównej</span>
         </Link>
 

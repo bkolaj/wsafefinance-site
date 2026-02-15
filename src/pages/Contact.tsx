@@ -5,6 +5,8 @@ import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/Button";
 import { cn } from "@/lib/utils";
+import { assetUrl, brandAssets } from "@/lib/brandAssets";
+import { useTheme } from "@/hooks/useTheme";
 
 type ContactFormValues = {
   name: string;
@@ -100,6 +102,8 @@ function TextareaField({
 export default function Contact() {
   const location = useLocation();
   const sourcePage = useMemo(() => location.state?.sourcePage ?? location.pathname, [location]);
+  const { isDark } = useTheme();
+  const markSrc = assetUrl(isDark ? brandAssets.dark.mark : brandAssets.light.mark);
 
   const [values, setValues] = useState<ContactFormValues>({
     name: "",
@@ -246,16 +250,7 @@ export default function Contact() {
                   <div className="mt-3 font-serif text-xl text-ink dark:text-paper">W. Safe Finance</div>
                 </div>
                 <div className="h-12 w-12 rounded-2xl bg-white p-2.5 shadow-soft ring-1 ring-black/5 dark:bg-ink dark:ring-white/10">
-                  <img
-                    src="/photos/dark/solo_logo_white.png"
-                    alt=""
-                    className="hidden h-full w-full object-contain dark:block"
-                  />
-                  <img
-                    src="/photos/light/solo_logo.png"
-                    alt=""
-                    className="h-full w-full object-contain dark:hidden"
-                  />
+                  <img src={markSrc} alt="" className="h-full w-full object-contain" decoding="async" />
                 </div>
               </div>
               <div className="mt-5 grid gap-2 text-sm">
