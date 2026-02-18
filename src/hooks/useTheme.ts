@@ -14,7 +14,7 @@ function readStoredTheme(): Theme | null {
   return normalizeTheme(window.localStorage.getItem(THEME_KEY));
 }
 
-let currentTheme: Theme = readStoredTheme() ?? "light";
+let currentTheme: Theme = readStoredTheme() ?? "dark";
 const listeners = new Set<() => void>();
 
 function applyTheme(theme: Theme) {
@@ -46,7 +46,7 @@ function getSnapshot() {
 }
 
 function getServerSnapshot(): Theme {
-  return "light";
+  return "dark";
 }
 
 export function useTheme() {

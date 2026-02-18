@@ -219,26 +219,6 @@ export default function HomeEn() {
       <section className="border-t border-line/70 bg-paper dark:border-white/10 dark:bg-night">
         <Container className="py-14">
           <SectionHeading
-            eyebrow="Trust"
-            title="Trust is built on facts"
-            description="Space for partner bank logos in monochrome — without aggressive colors."
-          />
-          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {Array.from({ length: 8 }).map((_, idx) => (
-              <div
-                key={idx}
-                className="flex h-14 items-center justify-center rounded-2xl border border-line/80 bg-white text-xs font-medium tracking-[0.22em] text-ink/35 dark:border-white/10 dark:bg-midnight dark:text-paper/30"
-              >
-                BANK LOGO
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-t border-line/70 bg-paper dark:border-white/10 dark:bg-night">
-        <Container className="py-14">
-          <SectionHeading
             eyebrow="Process"
             title="How we work"
             description="A calm, structured process. You always know what’s happening."

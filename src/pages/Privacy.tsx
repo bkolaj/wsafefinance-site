@@ -178,7 +178,7 @@ export default function Privacy() {
           </section>
 
           <section className="space-y-4">
-            <h3 className="font-serif text-xl text-ink dark:text-paper">§8 Rodzaje gromadzonych danych</h3>
+            <h3 className="font-serif text-xl text-ink dark:text-paper">§6 Rodzaje gromadzonych danych</h3>
             <p>
               Serwis gromadzi dane o Użytkownikach. Cześć danych jest gromadzona automatycznie i anonimowo, a
               część danych to dane osobowe podane dobrowolnie przez Użytkowników w trakcie zapisywania się do
@@ -187,7 +187,7 @@ export default function Privacy() {
           </section>
 
           <section className="space-y-4">
-            <h3 className="font-serif text-xl text-ink dark:text-paper">§9 Dane gromadzone podczas kontaktu za pomocą formularza</h3>
+            <h3 className="font-serif text-xl text-ink dark:text-paper">§7 Dane gromadzone podczas kontaktu za pomocą formularza</h3>
             <ul className="list-disc space-y-1 pl-5">
               <li>Imię / nazwisko / Nazwa</li>
               <li>Adres e-mail</li>
@@ -198,7 +198,7 @@ export default function Privacy() {
           </section>
 
           <section className="space-y-4">
-            <h3 className="font-serif text-xl text-ink dark:text-paper">§10 Cele przetwarzania danych osobowych</h3>
+            <h3 className="font-serif text-xl text-ink dark:text-paper">§8 Cele przetwarzania danych osobowych</h3>
             <p>
               Sposób przetwarzania przez Administratora danych dotyczących Użytkownika zależy od sposobu korzystania
               przez Użytkownika z Serwisu i dostępnych w nim funkcjonalności. Administrator przetwarza dane osobowe
@@ -245,7 +245,7 @@ export default function Privacy() {
           </section>
 
           <section className="space-y-4">
-            <h3 className="font-serif text-xl text-ink dark:text-paper">§11 Sposób przetwarzania danych osobowych</h3>
+            <h3 className="font-serif text-xl text-ink dark:text-paper">§9 Sposób przetwarzania danych osobowych</h3>
             <div className="space-y-3">
               <div className="font-medium text-ink dark:text-paper">Dane osobowe podane dobrowolnie przez Użytkowników:</div>
               <p>
@@ -259,7 +259,7 @@ export default function Privacy() {
           </section>
 
           <section className="space-y-4">
-            <h3 className="font-serif text-xl text-ink dark:text-paper">§12 Podstawy prawne przetwarzania danych osobowych</h3>
+            <h3 className="font-serif text-xl text-ink dark:text-paper">§10 Podstawy prawne przetwarzania danych osobowych</h3>
             <p>Serwis gromadzi i przetwarza dane Użytkowników na podstawie:</p>
             <ul className="list-disc space-y-1 pl-5">
               <li>
@@ -284,7 +284,7 @@ export default function Privacy() {
           </section>
 
           <section className="space-y-4">
-            <h3 className="font-serif text-xl text-ink dark:text-paper">§13 Okres przetwarzania danych osobowych</h3>
+            <h3 className="font-serif text-xl text-ink dark:text-paper">§11 Okres przetwarzania danych osobowych</h3>
             <p>
               Okres przechowywania danych osobowych Użytkowników uzależniony jest od celów przetwarzania przez
               Administratora danych. Administrator przechowuje dane osobowe przez taki okres, jaki jest konieczny do
@@ -301,7 +301,7 @@ export default function Privacy() {
           </section>
 
           <section className="space-y-4">
-            <h3 className="font-serif text-xl text-ink dark:text-paper">§14 Prawa Użytkowników związane z przetwarzaniem danych osobowych</h3>
+            <h3 className="font-serif text-xl text-ink dark:text-paper">§12 Prawa Użytkowników związane z przetwarzaniem danych osobowych</h3>
             <div className="space-y-3">
               <p>
                 <span className="font-medium text-ink dark:text-paper">Prawo dostępu do danych osobowych</span> – Użytkownikom przysługuje
@@ -343,7 +343,7 @@ export default function Privacy() {
           </section>
 
           <section className="space-y-4">
-            <h3 className="font-serif text-xl text-ink dark:text-paper">§15 Inne ważne Informacje</h3>
+            <h3 className="font-serif text-xl text-ink dark:text-paper">§13 Inne ważne Informacje</h3>
             <ol className="list-decimal space-y-4 pl-5">
               <li>
                 <div className="font-medium text-ink dark:text-paper">Ochrona bezpieczeństwa danych osobowych</div>

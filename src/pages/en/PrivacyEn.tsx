@@ -97,7 +97,7 @@ export default function PrivacyEn() {
           </section>
 
           <section className="space-y-4">
-            <h3 className="font-serif text-xl text-ink dark:text-paper">§8 Categories of collected data</h3>
+            <h3 className="font-serif text-xl text-ink dark:text-paper">§6 Categories of collected data</h3>
             <p>
               The Service collects data about Users. Some data is collected automatically and anonymously; some data is
               personal data provided voluntarily.
@@ -105,7 +105,7 @@ export default function PrivacyEn() {
           </section>
 
           <section className="space-y-4">
-            <h3 className="font-serif text-xl text-ink dark:text-paper">§9 Contact form data</h3>
+            <h3 className="font-serif text-xl text-ink dark:text-paper">§7 Contact form data</h3>
             <ul className="list-disc space-y-1 pl-5">
               <li>Name / Company</li>
               <li>Email address</li>
@@ -116,7 +116,7 @@ export default function PrivacyEn() {
           </section>
 
           <section className="space-y-4">
-            <h3 className="font-serif text-xl text-ink dark:text-paper">§10 Purposes of personal data processing</h3>
+            <h3 className="font-serif text-xl text-ink dark:text-paper">§8 Purposes of personal data processing</h3>
             <ol className="list-decimal space-y-2 pl-5">
               <li>Communication with the User</li>
               <li>Presenting commercial offers by electronic means</li>
@@ -126,12 +126,12 @@ export default function PrivacyEn() {
           </section>
 
           <section className="space-y-4">
-            <h3 className="font-serif text-xl text-ink dark:text-paper">§12 Legal bases</h3>
+            <h3 className="font-serif text-xl text-ink dark:text-paper">§9 Legal bases</h3>
             <p>The Service processes personal data based on GDPR and relevant Polish laws.</p>
           </section>
 
           <section className="space-y-4">
-            <h3 className="font-serif text-xl text-ink dark:text-paper">§14 User rights</h3>
+            <h3 className="font-serif text-xl text-ink dark:text-paper">§10 User rights</h3>
             <p>
               Users have rights under GDPR, including access, rectification, erasure, restriction, portability, objection
               and lodging a complaint.
@@ -139,7 +139,7 @@ export default function PrivacyEn() {
           </section>
 
           <section className="space-y-4">
-            <h3 className="font-serif text-xl text-ink dark:text-paper">§15 Contact</h3>
+            <h3 className="font-serif text-xl text-ink dark:text-paper">§11 Contact</h3>
             <p>
               For any questions related to this Privacy Policy, please contact: {" "}
               <a className="text-ink underline underline-offset-4 dark:text-paper" href="mailto:biuro@wsafefinance.pl">
@@ -153,4 +153,3 @@ export default function PrivacyEn() {
     </main>
   );
 }
-

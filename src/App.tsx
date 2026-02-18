@@ -12,6 +12,7 @@ import NotFoundEn from "@/pages/en/NotFoundEn";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { PrivacyConsentBanner } from "@/components/PrivacyConsentBanner";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
         <SiteFooter />
+        <PrivacyConsentBanner />
       </div>
     </Router>
   );

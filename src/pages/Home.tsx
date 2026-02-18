@@ -219,35 +219,6 @@ export default function Home() {
       <section className="border-t border-line/70 bg-paper dark:border-white/10 dark:bg-night">
         <Container className="py-14">
           <SectionHeading
-            eyebrow="Zaufanie"
-            title="Zaufanie buduje się faktami"
-            description="Miejsce na logotypy banków partnerskich w wersji monochromatycznej — bez agresywnych kolorów."
-          />
-          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              "LOGO BANKU",
-              "LOGO BANKU",
-              "LOGO BANKU",
-              "LOGO BANKU",
-              "LOGO BANKU",
-              "LOGO BANKU",
-              "LOGO BANKU",
-              "LOGO BANKU",
-            ].map((t, idx) => (
-              <div
-                key={`${t}-${idx}`}
-                className="flex h-14 items-center justify-center rounded-2xl border border-line/80 bg-white text-xs font-medium tracking-[0.22em] text-ink/35 dark:border-white/10 dark:bg-midnight dark:text-paper/30"
-              >
-                {t}
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-t border-line/70 bg-paper dark:border-white/10 dark:bg-night">
-        <Container className="py-14">
-          <SectionHeading
             eyebrow="Proces"
             title="Jak pracuję"
             description="Spokojny, uporządkowany proces. Wiesz, co dzieje się na każdym etapie."

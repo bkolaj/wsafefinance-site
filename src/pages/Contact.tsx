@@ -1,5 +1,5 @@
 import type { FormEvent } from "react";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -7,6 +7,7 @@ import { Button } from "@/components/Button";
 import { cn } from "@/lib/utils";
 import { assetUrl, brandAssets } from "@/lib/brandAssets";
 import { useTheme } from "@/hooks/useTheme";
+import { getPrivacyConsent, subscribePrivacyConsent } from "@/lib/privacyConsent";
 
 type ContactFormValues = {
   name: string;
@@ -104,6 +105,7 @@ export default function Contact() {
   const sourcePage = useMemo(() => location.state?.sourcePage ?? location.pathname, [location]);
   const { isDark } = useTheme();
   const markSrc = assetUrl(isDark ? brandAssets.dark.mark : brandAssets.light.mark);
+  const privacyConsent = useSyncExternalStore(subscribePrivacyConsent, getPrivacyConsent, () => null);
 
   const [values, setValues] = useState<ContactFormValues>({
     name: "",
@@ -126,6 +128,10 @@ export default function Contact() {
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (privacyConsent !== "accepted") {
+      setErrors({ message: "Aby wysłać formularz, zaakceptuj politykę prywatności." });
+      return;
+    }
     const nextErrors = validate();
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
@@ -181,6 +187,11 @@ export default function Contact() {
                 </div>
               ) : (
                 <form className="grid gap-5" onSubmit={onSubmit}>
+                  {privacyConsent !== "accepted" ? (
+                    <div className="rounded-2xl border border-gold/35 bg-gold/10 px-5 py-4 text-sm text-ink dark:border-gold/25 dark:bg-gold/10 dark:text-paper">
+                      Aby wysłać formularz, zaakceptuj politykę prywatności (banner na dole strony).
+                    </div>
+                  ) : null}
                   <div className="grid gap-5 sm:grid-cols-2">
                     <InputField
                       label="Imię i nazwisko / Nazwa"
@@ -233,7 +244,10 @@ export default function Contact() {
                     <div className="text-xs leading-relaxed text-slateText/70 dark:text-paper/60">
                       Wysyłając formularz, zgadzasz się na kontakt zwrotny.
                     </div>
-                    <Button type="submit" disabled={status === "submitting"}>
+                    <Button
+                      type="submit"
+                      disabled={status === "submitting" || privacyConsent !== "accepted"}
+                    >
                       {status === "submitting" ? "Wysyłanie…" : "Wyślij"}
                     </Button>
                   </div>
