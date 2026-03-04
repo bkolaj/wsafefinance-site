@@ -173,7 +173,7 @@ export default function Home() {
                   <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/60">Podejście</div>
                   <div className="mt-3 font-serif text-2xl text-ink dark:text-paper">Partnerstwo, nie sprzedaż</div>
                   <p className="mt-4 text-sm leading-relaxed text-slateText/75 dark:text-paper/70">
-                    Nazywam się Sylwia Wiśniewska. W. Safe Finance to profesjonalne doradztwo finansowe,
+                    Nazywam się Sylwia Wiśniewska. W. Safe Finance to profesjonalny consulting finansowy,
                     w którym liczy się precyzja, poufność i spokojne prowadzenie procesu.
                   </p>
                   <div className="mt-6 grid gap-3">

@@ -173,7 +173,7 @@ export default function HomeEn() {
                   <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/60">Approach</div>
                   <div className="mt-3 font-serif text-2xl text-ink dark:text-paper">Partnership, not sales</div>
                   <p className="mt-4 text-sm leading-relaxed text-slateText/75 dark:text-paper/70">
-                    My name is Sylwia Wiśniewska. W. Safe Finance is professional financial advisory built on precision,
+                    My name is Sylwia Wiśniewska. W. Safe Finance is professional financial consulting built on precision,
                     confidentiality and calm guidance.
                   </p>
                   <div className="mt-6 grid gap-3">
