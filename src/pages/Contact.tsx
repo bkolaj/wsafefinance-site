@@ -115,7 +115,7 @@ export default function Contact() {
     message: "",
   });
   const [errors, setErrors] = useState<ContactFormErrors>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   const validate = () => {
     const next: ContactFormErrors = {};
@@ -137,23 +137,32 @@ export default function Contact() {
     if (Object.keys(nextErrors).length > 0) return;
 
     setStatus("submitting");
-    await new Promise((r) => setTimeout(r, 650));
-
-    const payload = {
-      ...values,
-      sourcePage,
-      createdAt: new Date().toISOString(),
-    };
 
     try {
-      const existingRaw = localStorage.getItem("wsf_leads");
-      const existing = existingRaw ? (JSON.parse(existingRaw) as unknown[]) : [];
-      localStorage.setItem("wsf_leads", JSON.stringify([payload, ...existing].slice(0, 50)));
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "322886fa-1e12-40f7-a105-3d93f0552f5f",
+          subject: "Nowe zapytanie — W. Safe Finance",
+          from_name: "W. Safe Finance Formularz",
+          name: values.name,
+          email: values.email,
+          phone: values.phone || "—",
+          topic: values.topic || "—",
+          message: values.message,
+          source_page: sourcePage,
+        }),
+      });
+      const data = await res.json() as { success: boolean };
+      if (data.success) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
     } catch {
-      setErrors((s) => s);
+      setStatus("error");
     }
-
-    setStatus("success");
   };
 
   return (
@@ -168,7 +177,18 @@ export default function Contact() {
             />
 
             <div className="mt-10 rounded-2xl border border-line/80 bg-white p-6 sm:p-8 dark:border-white/10 dark:bg-midnight">
-              {status === "success" ? (
+              {status === "error" ? (
+                <div className="max-w-xl">
+                  <div className="text-xs font-medium tracking-[0.18em] text-red-500">Błąd</div>
+                  <h2 className="mt-3 font-serif text-2xl text-ink dark:text-paper">Nie udało się wysłać</h2>
+                  <p className="mt-3 text-sm leading-relaxed text-slateText/75 dark:text-paper/70">
+                    Wystąpił problem z wysyłką formularza. Spróbuj jeszcze raz lub skontaktuj się bezpośrednio: 782-002-822.
+                  </p>
+                  <div className="mt-6">
+                    <Button onClick={() => setStatus("idle")}>Spróbuj ponownie</Button>
+                  </div>
+                </div>
+              ) : status === "success" ? (
                 <div className="max-w-xl">
                   <div className="text-xs font-medium tracking-[0.18em] text-ink/60 dark:text-paper/60">Wysłano</div>
                   <h2 className="mt-3 font-serif text-2xl text-ink dark:text-paper">Dziękuję za wiadomość</h2>
